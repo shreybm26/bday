@@ -1,0 +1,89 @@
+{
+  "placeholderImages": [
+    {
+      "id": "memories-1",
+      "description": "eleonora-1.jpg",
+      "imageUrl": "/eleonora-1.jpg",
+      "imageHint": "couple portrait"
+    },
+    {
+      "id": "memories-2",
+      "description": "eleonora-2.jpg",
+      "imageUrl": "/eleonora-2.jpg",
+      "imageHint": "couple smiling"
+    },
+    {
+      "id": "memories-3",
+      "description": "eleonora-3.jpg",
+      "imageUrl": "/eleonora-3.jpg",
+      "imageHint": "couple happy"
+    },
+    {
+      "id": "memories-4",
+      "description": "eleonora-4.jpg",
+      "imageUrl": "/eleonora-4.jpg",
+      "imageHint": "couple outdoors"
+    },
+    {
+      "id": "memories-5",
+      "description": "eleonora-5.jpg",
+      "imageUrl": "/eleonora-5.jpg",
+      "imageHint": "couple vacation"
+    },
+    {
+      "id": "memories-6",
+      "description": "eleonora-6.jpg",
+      "imageUrl": "/eleonora-6.jpg",
+      "imageHint": "couple together"
+    }
+    ,
+    {
+      "id": "memories-7",
+      "description": "eleonora-7.jpg",
+      "imageUrl": "/eleonora-7.jpg",
+      "imageHint": "candid moment"
+    },
+    {
+      "id": "memories-8",
+      "description": "eleonora-8.jpg",
+      "imageUrl": "/eleonora-8.jpg",
+      "imageHint": "soft portrait"
+    },
+    {
+      "id": "memories-9",
+      "description": "eleonora-9.jpg",
+      "imageUrl": "/eleonora-9.jpg",
+      "imageHint": "romantic evening"
+    },
+    {
+      "id": "memories-10",
+      "description": "eleonora-10.jpg",
+      "imageUrl": "/eleonora-10.jpg",
+      "imageHint": "playful pose"
+    },
+    {
+      "id": "memories-11",
+      "description": "eleonora-11.jpg",
+      "imageUrl": "/eleonora-11.jpg",
+      "imageHint": "outdoor walk"
+    },
+    {
+      "id": "memories-12",
+      "description": "eleonora-12.jpg",
+      "imageUrl": "/eleonora-12.jpg",
+      "imageHint": "golden hour"
+    },
+    {
+      "id": "memories-13",
+      "description": "eleonora-13.jpg",
+      "imageUrl": "/eleonora-13.jpg",
+      "imageHint": "close-up smile"
+    },
+    {
+      "id": "memories-14",
+      "description": "eleonora-14.jpg",
+      "imageUrl": "/eleonora-14.jpg",
+      "imageHint": "joyful moment"
+    }
+  ]
+}
