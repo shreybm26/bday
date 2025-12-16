@@ -3,7 +3,8 @@
 
 import { generatePersonalizedFarewell, type PersonalizedFarewellInput } from '@/ai/flows/generate-personalized-farewell';
 import { z } from 'zod';
-import { supabaseAdmin } from '@/lib/supabase-server';
+import fs from 'fs/promises';
+import path from 'path';
 
 const GuestbookEntrySchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(50, { message: "Name must be 50 characters or less."}),
@@ -26,17 +27,31 @@ export async function addGuestbookEntry(prevState: any, formData: FormData) {
     }
   }
 
-  // Persist the entry to Supabase
+  // Here you would typically save to a database like Firestore.
+  // Persist the entry to a simple JSON file so entries survive restarts.
   try {
-    const { data: inserted, error } = await supabaseAdmin
-      .from('guestbook')
-      .insert([{ name: parsed.data.name, message: parsed.data.message }]);
-
-    if (error) {
-      console.error('Failed to persist guestbook entry:', error);
-    } else {
-      console.log('New guestbook entry persisted:', inserted);
+    const dataPath = path.join(process.cwd(), 'data', 'guestbook.json');
+    // Ensure file exists
+    let existing: any[] = [];
+    try {
+      const raw = await fs.readFile(dataPath, 'utf-8');
+      existing = JSON.parse(raw);
+      if (!Array.isArray(existing)) existing = [];
+    } catch (err) {
+      // If the file doesn't exist or is malformed, start fresh
+      existing = [];
     }
+
+    const entry = {
+      ...parsed.data,
+      createdAt: new Date().toISOString(),
+    };
+
+    // Prepend so newest appears first
+    existing.unshift(entry);
+
+    await fs.writeFile(dataPath, JSON.stringify(existing, null, 2), 'utf-8');
+    console.log('New guestbook entry persisted:', entry);
   } catch (err) {
     console.error('Failed to persist guestbook entry:', err);
   }
