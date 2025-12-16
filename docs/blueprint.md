@@ -1,4 +1,4 @@
-# **App Name**: Ethereal Echoes
+# **App Name**: Bubba's Birthday
 
 ## Core Features:
 
