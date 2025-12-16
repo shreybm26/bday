@@ -22,7 +22,7 @@ export default function ClosingSection() {
         setGeneratedMessage('');
 
         const result = await getFarewellMessage({
-            herName: 'Eleonora',
+            herName: 'Shreya',
             relationship,
             promise,
         });

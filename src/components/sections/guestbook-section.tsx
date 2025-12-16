@@ -76,7 +76,7 @@ export default function GuestbookSection() {
       <div className="text-center mb-12">
         <h2 className="font-headline text-4xl md:text-5xl">Leave Your Wishes</h2>
         <p className="mt-4 text-lg text-muted-foreground">
-          Share a memory or a message for Eleonora.
+          Share a memory or a message for Shreya.
         </p>
       </div>
 
