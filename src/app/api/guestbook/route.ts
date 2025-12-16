@@ -1,15 +1,29 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { supabaseAdmin } from '@/lib/supabase-server';
 
 export async function GET() {
   try {
-    const dataPath = path.join(process.cwd(), 'data', 'guestbook.json');
-    const raw = await fs.readFile(dataPath, 'utf-8');
-    const entries = JSON.parse(raw);
-    return NextResponse.json({ success: true, entries });
+    const { data: entries, error } = await supabaseAdmin
+      .from('guestbook')
+      .select('id, name, message, created_at')
+      .order('created_at', { ascending: false })
+      .limit(100);
+
+    if (error) {
+      console.error('Failed to fetch guestbook entries:', error);
+      return NextResponse.json({ success: false, entries: [] });
+    }
+
+    const mapped = (entries || []).map((e: any) => ({
+      id: e.id,
+      name: e.name,
+      message: e.message,
+      createdAt: e.created_at ?? e.createdAt,
+    }));
+
+    return NextResponse.json({ success: true, entries: mapped });
   } catch (err) {
-    // If file doesn't exist, return empty entries
-    return NextResponse.json({ success: true, entries: [] });
+    console.error('Error fetching guestbook entries:', err);
+    return NextResponse.json({ success: false, entries: [] });
   }
 }
